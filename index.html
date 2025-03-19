@@ -1,8 +1,35 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Trip.com Mini App</title>
-</head>
-<iframe border="0" src="https://ru.trip.com/partners/ad/S2309162?Allianceid=6165804&SID=186240559&trip_sub1=" style="width:320px;height:640px" frameborder="0" scrolling="no" style="border:none" id="S2309162"></iframe>
-</html>
+export default function TripMiniApp() {
+  return (
+    <div className="p-4 bg-gray-100 h-screen flex flex-col items-center justify-center">
+      <h1 className="text-2xl font-bold mb-4">Поиск отелей через Trip.com</h1>
+      <input 
+        type="text" 
+        placeholder="Введите город или отель" 
+        className="w-3/4 p-2 border rounded-md mb-4"
+      />
+      <input 
+        type="text" 
+        placeholder="Введите номер карты CardB" 
+        className="w-3/4 p-2 border rounded-md mb-4"
+      />
+      <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
+        Найти отели
+      </button>
+      <div className="mt-6 w-full md:w-3/4">
+        <h2 className="text-xl font-semibold">Специальное предложение</h2>
+        <div className="mt-2 bg-white p-4 rounded-lg shadow">
+          <p className="font-medium">Получите скидку, бронируя через CardB!</p>
+          <div className="relative w-full overflow-hidden" style={{ paddingTop: '200%' }}>
+            <iframe
+              src="https://ru.trip.com/partners/ad/S2309162?Allianceid=6165804&SID=186240559&trip_sub1="
+              frameBorder="0"
+              scrolling="no"
+              className="absolute top-0 left-0 w-full h-full border-none"
+              id="S2309162"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
