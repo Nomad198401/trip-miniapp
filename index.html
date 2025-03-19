@@ -1,15 +1,13 @@
 export default function TripMiniApp() {
   return (
     <div style={{ width: '100%', maxWidth: '600px', margin: '0 auto' }}>
-      <div style={{ position: 'relative', paddingBottom: '200%', height: 0, overflow: 'hidden' }}>
-        <iframe
-          src="https://ru.trip.com/partners/ad/S2309162?Allianceid=6165804&SID=186240559&trip_sub1="
-          frameBorder="0"
-          scrolling="no"
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
-          id="S2309162"
-        ></iframe>
-      </div>
+      <iframe
+        src="https://ru.trip.com/partners/ad/S2309162?Allianceid=6165804&SID=186240559&trip_sub1="
+        style={{ width: '100%', height: '100vh', border: 'none' }}
+        frameBorder="0"
+        scrolling="no"
+        id="S2309162"
+      ></iframe>
     </div>
   );
 }
