@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Passport Information Form</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+<body class="bg-gray-100 p-4">
+  <div id="app"></div>
+  <script type="text/javascript">
+    const tg = window.Telegram && window.Telegram.WebApp;
+    if (tg) tg.ready();
+    const { useState } = React;
 
+    function PassportForm() {
+      const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        citizenship: '',
+        passportNumber: '',
+        dateOfBirth: '',
+        email: ''
+      });
+
+      const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        alert(JSON.stringify(formData, null, 2));
+        if (tg) tg.close();
+      };
+
+      return (
+        React.createElement('form', { onSubmit: handleSubmit, className: 'bg-white p-4 rounded shadow max-w-md mx-auto' },
+          React.createElement('h1', { className: 'text-xl font-bold mb-4' }, 'Passport Information'),
+          React.createElement('div', { className: 'mb-3' },
+            React.createElement('label', { className: 'block mb-1 text-sm font-medium' }, 'First name'),
+            React.createElement('input', {
+              type: 'text', name: 'firstName', value: formData.firstName,
+              onChange: handleChange, className: 'border rounded w-full p-2'
+            })
+          ),
+          React.createElement('div', { className: 'mb-3' },
+            React.createElement('label', { className: 'block mb-1 text-sm font-medium' }, 'Last name'),
+            React.createElement('input', {
+              type: 'text', name: 'lastName', value: formData.lastName,
+              onChange: handleChange, className: 'border rounded w-full p-2'
+            })
+          ),
+          React.createElement('div', { className: 'mb-3' },
+            React.createElement('label', { className: 'block mb-1 text-sm font-medium' }, 'Citizenship'),
+            React.createElement('input', {
+              type: 'text', name: 'citizenship', value: formData.citizenship,
+              onChange: handleChange, className: 'border rounded w-full p-2'
+            })
+          ),
+          React.createElement('div', { className: 'mb-3' },
+            React.createElement('label', { className: 'block mb-1 text-sm font-medium' }, 'Passport number'),
+            React.createElement('input', {
+              type: 'text', name: 'passportNumber', value: formData.passportNumber,
+              onChange: handleChange, className: 'border rounded w-full p-2'
+            })
+          ),
+          React.createElement('div', { className: 'mb-3' },
+            React.createElement('label', { className: 'block mb-1 text-sm font-medium' }, 'Date of birth'),
+            React.createElement('input', {
+              type: 'date', name: 'dateOfBirth', value: formData.dateOfBirth,
+              onChange: handleChange, className: 'border rounded w-full p-2'
+            })
+          ),
+          React.createElement('div', { className: 'mb-4' },
+            React.createElement('label', { className: 'block mb-1 text-sm font-medium' }, 'Email'),
+            React.createElement('input', {
+              type: 'email', name: 'email', value: formData.email,
+              onChange: handleChange, className: 'border rounded w-full p-2'
+            })
+          ),
+          React.createElement('button', {
+            type: 'submit',
+            className: 'bg-blue-500 text-white px-4 py-2 rounded'
+          }, 'Submit')
+        )
+      );
+    }
+
+    ReactDOM.render(
+      React.createElement(PassportForm),
+      document.getElementById('app')
+    );
+  </script>
+</body>
+</html>
