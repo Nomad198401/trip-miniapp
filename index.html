@@ -1,1 +1,42 @@
-<iframe border="0" src="https://ru.trip.com/partners/ad/S2309162?Allianceid=6165804&SID=186240559&trip_sub1=" style="width:400px;height:800px" frameborder="0" scrolling="no" style="border:none" id="S2309162"></iframe>
+<!DOCTYPE html>
+<!-- Removed obsolete Trip.com iframe -->
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>e-Residency Miniapp</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    #content {
+      margin-top: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>e-Residency Integration</h1>
+  <button id="openEresidency">Open e-Residency Portal</button>
+  <div id="content"></div>
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    document.getElementById('openEresidency').addEventListener('click', () => {
+      document.getElementById('content').innerHTML =
+        '<iframe src="https://e-resident.gov.ee/"></iframe>';
+      tg.MainButton.show();
+      tg.MainButton.text = 'Close';
+      tg.MainButton.onClick(() => {
+        tg.close();
+      });
+    });
+  </script>
+</body>
+</html>
